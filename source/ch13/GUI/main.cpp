@@ -44,7 +44,7 @@ int main()
 
     unsigned int poz[] = {1,0};
     Image movingImg(Point(100, 0), "voltorb.jpg");
-    movingImg.set_mask(Point(150,150), 100,100);
+    //movingImg.set_mask(Point(150,150), 100,100);
     win.attach(movingImg);
     for (int i = 0; i<8;++i) {
         for (int j = 0; j<8;++j) {
