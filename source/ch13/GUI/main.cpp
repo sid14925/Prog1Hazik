@@ -17,20 +17,20 @@ int main()
 
     Simple_window win {Point{100,100}, xmax, ymax, "Canvas"};
 
-    Lines x;
+    Lines gridlines;
     Vector_ref<Rectangle> rect;
     
     bool grid[8][8] = {0};
 
     for (int i = 0; i<=800; i+=100) {
-        x.add(Point(i,0), Point(i, 800));
-        x.add(Point(0,i), Point(800, i));
+        gridlines.add(Point(i,0), Point(i, 800));
+        gridlines.add(Point(0,i), Point(800, i));
         rect.push_back(new Rectangle(Point(i,i), Point(i+101, i+101)));
         rect[rect.size() -1].set_fill_color(Color::red);
         win.attach(rect[rect.size() -1]);
         grid[i/100][i/100] = true;
     }
-    win.attach(x);
+    win.attach(gridlines);
 
     Vector_ref<Image> images;
     for (int i = 0; i<300; i+=100) {
