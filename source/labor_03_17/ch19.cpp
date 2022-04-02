@@ -11,8 +11,7 @@ struct S {
     const T& get() const;
     void set(T v);
     void operator=(const T& s);
-    ostream& operator>>(ostream& os, vector<T>& v);
-    istream& operator>>(istream& is, vector<T>& v);
+
     private:
         T val;
 };
@@ -43,7 +42,7 @@ void read_val(T& v){
 }
 
 template<typename T>
-ostream& S<T>::operator>>(ostream& os, vector<T>& v){
+ostream& operator<<(ostream& os, vector<T>& v){
     os << "{ ";
     for(int i = 0; i < v.size(); ++i){
         os << v[i] << (i < v.size()-1 ? ", " : " ");
@@ -54,23 +53,23 @@ ostream& S<T>::operator>>(ostream& os, vector<T>& v){
 }
 
 template<typename T>
-istream& S<T>::operator>>(istream& is, vector<T>& v){
+std::istream& operator>>(std::istream& is, std::vector<T>& v)
+{
     char ch = 0;
     is >> ch;
-    if(ch != '{'){
+    if (ch != '{') {
         is.unget();
         return is;
     }
 
-    for(T val; is >> val;){
+    for (T val; is >> val; ) {
         v.push_back(val);
         is >> ch;
-        if(ch != ' ,') break;
+        if (ch != ',') break;
     }
 
     return is;
 }
-
 
 int main(){
     S<int> s;

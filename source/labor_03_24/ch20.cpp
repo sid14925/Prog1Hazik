@@ -9,7 +9,7 @@
 template<typename C>
 void print(const C& c){
         for(auto& i :c){
-                stf::cout << i <<' ';
+                std::cout << i <<' ';
         }
         std::cout<<std::endl;
 
@@ -20,7 +20,7 @@ template<typename C>
 void inc(C& c, int n){
         for(auto)
 
-
+}
 
 
 int main()
@@ -55,5 +55,5 @@ int main()
         copy(li2.begin(), li2.end(), li2.begin());
 
 
-
-        HF 8/27
+};
+        //HF 8/27
